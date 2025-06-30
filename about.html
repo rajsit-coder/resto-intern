@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - ₹€$₮Φ</title>
+    <link rel="icon" href="img-offer-1.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+
+    <style>
+        body {
+            background-color: #121212;
+            background-image: url('bg-food-dark.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+        }
+        
+        .navbar {
+            transition: background-color 0.3s ease, padding 0.3s ease;
+            padding: 1.2rem 1rem;
+            background-color: transparent;
+        }
+        
+        .navbar-brand {
+            color: #FFC107;
+            font-size: 40px;
+            font-family: 'Pacifico', cursive;
+        }
+        
+        .navbar-brand::before {
+            content: "";
+            display: inline-block;
+            background-image: url('img-offer-1.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+            margin-top: -10px;
+            vertical-align: middle;
+        }
+        
+        .navbar-brand:hover::before {
+            filter: grayscale(100%);
+        }
+        
+        .navbar.scrolled {
+            background-color: black !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            padding: 0.6rem 1rem;
+        }
+        
+        .nav-link {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 6px;
+            color: white !important;
+        }
+        
+        .nav-link:hover {
+            color: #FFC107 !important;
+        }
+        
+        .navbar-toggler {
+            border: none;
+        }
+        
+        .offcanvas {
+            background-color: black;
+            color: white;
+        }
+        
+        .offcanvas .nav-link:hover {
+            color: #FFC107 !important;
+        }
+        
+        .navbar-brand img {
+            height: 45px;
+        }
+        
+        .hero-section {
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
+        
+        .play-section {
+            position: relative;
+            height: 75vh;
+        }
+        
+        .play-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffc107;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .play-btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-40%, -50%);
+            width: 0;
+            height: 0;
+            border-left: 18px solid transparent;
+            border-right: 0 solid transparent;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .play-btn:hover {
+            cursor: pointer;
+        }
+        
+        .right-section h1 {
+            font-weight: 900;
+            font-size: 2.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-icon {
+            text-align: center;
+            margin-top: 1.8rem;
+        }
+        
+        .info-icon img {
+            height: 60px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-icon p {
+            font-weight: 700;
+            color: white;
+        }
+        /* Breakpoint adjustments */
+        
+        @media (max-width: 1199.98px) {
+            .right-section h1 {
+                font-size: 1.9rem;
+            }
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero-section {
+                padding-top: 80px;
+            }
+            .right-section h1 {
+                font-size: 1.7rem;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .play-section {
+                height: 300px;
+                margin-top: 20px;
+            }
+            .right-section h1 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .navbar-brand {
+                font-size: 32px;
+            }
+            .nav-link {
+                font-size: 16px;
+            }
+            .play-section {
+                height: 240px;
+            }
+        }
+        
+        #cheif {
+            min-height: 90vh;
+            width: 100%;
+        }
+        
+        .social-icons i {
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .social-icons i:hover {
+            transform: scale(1.2);
+        }
+        
+        #gallery {
+            min-height: 80vh;
+        }
+        
+        .gallery-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        
+        .gallery-img-wrapper img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-img-wrapper .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            /* Transparent initially */
+            transition: background 0.3s ease;
+        }
+        
+        .gallery-img-wrapper:hover .overlay {
+            background: rgba(0, 0, 0, 0.4);
+            /* Blackish overlay on hover */
+        }
+        
+        footer {
+            position: relative;
+            color: white;
+            overflow: hidden;
+            height: 62vh;
+        }
+        
+        footer video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .footer-content {
+            padding: 50px 30px 30px;
+            max-width: 800px;
+        }
+        
+        .footer-logo h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+        
+        .footer-logo span {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: #f2a86f;
+        }
+        
+        .footer-border {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 5px 0;
+            margin: 5px 0;
+        }
+        
+        .footer-note {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 30px 20px 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .footer-social a:hover {
+            color: #f2a86f;
+        }
+        
+        .arrow-icon {
+            display: inline-block;
+            transform: rotate(45deg);
+            margin-right: 10px;
+            color: #f2a86f;
+        }
+        
+        @media (max-width: 768px) {
+            footer {
+                height: 60vh;
+            }
+            .footer-content {
+                padding: 30px 20px;
+            }
+            .footer-logo h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            footer {
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">₹€$₮Φ</a>
+
+            <ul class="navbar-nav flex-row d-none d-lg-flex ms-auto">
+                <li class="nav-item"><a class="nav-link px-3" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="contact.php">Contact</a></li>
+            </ul>
+
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">₹€$₮Φ</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section container">
+        <div class="row align-items-center g-3">
+
+            <div class="col-md-6 order-1 order-md-2 right-section px-3">
+                <h1><img src="bg-title.png" alt="leaf" style="height: 40px;"> GOOD FOOD FOR YOUR ALL DAY GOOD MOOD</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores nisi rem mollitia, atque explicabo obcaecati quam ea dicta cumque magnam</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus labore quam quae perspiciatis harum sed eveniet</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, eveniet beatae quae vero saepe.</p>
+
+                <div class="row text-center">
+                    <div class="col-4 info-icon">
+                        <img src="advantage-1.png" alt="Chef">
+                        <p>EXPERIENCED CHEFS</p>
+                    </div>
+                    <div class="col-4 info-icon">
+                        <img src="advantage-2.png" alt="Recipe">
+                        <p>ORIGINAL RECIPES</p>
+                    </div>
+                    <div class="col-4 info-icon">
+                        <img src="advantage-3.png" alt="Ingredients">
+                        <p>FRESH INGREDIENTS</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIDEO SECOND ON MOBILE, FIRST ON DESKTOP -->
+            <div class="col-md-6 order-2 order-md-1 play-section">
+                <img src="about-big.jpg" alt="Bar View">
+                <button class="play-btn" data-bs-toggle="modal" data-bs-target="#videoModal">
+      </button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Modal Video -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/B1J6Ou4q8vE" title="Video" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cheif" class="bg-black">
+        <section class="text-center py-5">
+            <div class="d-flex justify-content-center align-items-center flex-wrap gap-1 text-center mb-4">
+                <img src="bg-tomato.png" alt="leaf" style="width: 80px;">
+                <h1 class="fw-bold m-0">OUR BEST CHEF</h1>
+            </div>
+
+
+            <p class="text-white-50 mx-auto" style="max-width: 600px;">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, labore quasi temporibus consectetur suscipit sunt tenetur, veniam neque distinctio fugit in sint natus deserunt hic eaque dolores.
+            </p>
+
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <!-- Chef 1 -->
+                    <div class="col-md-3 text-center mb-4">
+                        <img src="chef-1.jpg" class="img-fluid" alt="Chef 1">
+                        <h5 class="fw-bold mt-3">RICHARD NAUZ</h5>
+                        <p class="text-white-50">food chef</p>
+                        <div class="social-icons">
+                            <i class="fab fa-facebook text-warning me-3"></i>
+                            <i class="fab fa-twitter text-warning me-3"></i>
+                            <i class="fab fa-instagram text-warning"></i>
+                        </div>
+                    </div>
+                    <!-- Chef 2 -->
+                    <div class="col-md-3 text-center mb-4">
+                        <img src="chef-2.jpg" class="img-fluid" alt="Chef 2">
+                        <h5 class="fw-bold mt-3">OLIVIA GROSH</h5>
+                        <p class="text-white-50">food chef</p>
+                        <div class="social-icons">
+                            <i class="fab fa-facebook text-warning me-3"></i>
+                            <i class="fab fa-twitter text-warning me-3"></i>
+                            <i class="fab fa-instagram text-warning"></i>
+                        </div>
+                    </div>
+                    <!-- Chef 3 -->
+                    <div class="col-md-3 text-center mb-4">
+                        <img src="chef-3.jpg" class="img-fluid" alt="Chef 3">
+                        <h5 class="fw-bold mt-3">JEREMY WHITE</h5>
+                        <p class="text-white-50">food chef</p>
+                        <div class="social-icons">
+                            <i class="fab fa-facebook text-warning me-3"></i>
+                            <i class="fab fa-twitter text-warning me-3"></i>
+                            <i class="fab fa-instagram text-warning"></i>
+                        </div>
+                    </div>
+                    <!-- Chef 4 -->
+                    <div class="col-md-3 text-center mb-4">
+                        <img src="chef-4.jpg" class="img-fluid" alt="Chef 4">
+                        <h5 class="fw-bold mt-3">HOWARD HOLMES</h5>
+                        <p class="text-white-50">food chef</p>
+                        <div class="social-icons">
+                            <i class="fab fa-facebook text-warning me-3"></i>
+                            <i class="fab fa-twitter text-warning me-3"></i>
+                            <i class="fab fa-instagram text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div id="gallery">
+        <section class="text-center py-5">
+            <div class="d-flex justify-content-center align-items-center gap-3 flex-wrap mb-4">
+                <img src="bg-title.png" alt="leaf" style="width: 60px;">
+                <h1 class="fw-bold">GALLERY</h1>
+            </div>
+
+            <div class="container">
+                <div class="row g-3">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="gallery-img-wrapper">
+                            <img src="gallery-1.jpg" class="img-fluid w-100" alt="Gallery Image 1">
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="gallery-img-wrapper">
+                            <img src="gallery-2.jpg" class="img-fluid w-100" alt="Gallery Image 2">
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="gallery-img-wrapper">
+                            <img src="gallery-3.jpg" class="img-fluid w-100" alt="Gallery Image 3">
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="gallery-img-wrapper">
+                            <img src="gallery-4.jpg" class="img-fluid w-100" alt="Gallery Image 4">
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="gallery-img-wrapper">
+                            <img src="gallery-5.jpg" class="img-fluid w-100" alt="Gallery Image 5">
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="gallery-img-wrapper">
+                            <img src="gallery-6.jpg" class="img-fluid w-100" alt="Gallery Image 6">
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer role="contentinfo">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline>
+    <source src="bg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+        <!-- Content -->
+        <div class="container footer-content text-white">
+            <div class="footer-logo">
+                <span><strong>B</strong></span>
+                <h1 class="d-inline ms-1">16</h1><br>
+                <span>HOURS OF OPERATION</span>
+            </div>
+
+            <div class="footer-border mt-4">
+                <p><strong>MONDAY–WEDNESDAY:</strong> 11 A.M. to 2 P.M.</p>
+                <p><strong>THURSDAY–SATURDAY:</strong> 11 A.M. to 8 P.M.</p>
+            </div>
+
+            <div>
+                <p class="mb-1">Near Sit College</p>
+                <p class="mb-1">Sitamarhi, Bihar 818181</p>
+                <p class="mb-2 text-white">abc@gmail.com</p>
+            </div>
+
+            <div class="footer-border mt-4">
+                <p><span class="arrow-icon">➤</span>Eat in or take out. We accept credit cards, personal checks, and cold-hard cash.</p>
+            </div>
+
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f me-1"></i> Facebook</a>
+                <a href="#"><i class="fab fa-twitter me-1"></i> Twitter</a>
+                <a href="#"><i class="fab fa-youtube me-1"></i> YouTube</a>
+                <a href="#"><i class="fab fa-instagram me-1"></i> Instagram</a>
+            </div>
+        </div>
+    </footer>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll navbar background effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 10);
+        });
+    </script>
+
+</body>
+
+</html>
